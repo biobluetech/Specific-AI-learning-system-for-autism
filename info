@@ -1,0 +1,27 @@
+class SpecialAISystem:
+    def __init__(self):
+        self.emotional_state = "neutral"
+        self.symbolic_map = {
+            "stressed": ["take a break", "breathe deeply", "listen to calm music"],
+            "anxious": ["ground yourself", "count to ten", "talk to a friend"],
+            "happy": ["keep up the good work!", "celebrate your wins"],
+        }
+
+    def update_emotional_state(self, state):
+        self.emotional_state = state.lower()
+        print(f"Emotional state updated to: {self.emotional_state}")
+
+    def get_advice(self):
+        advice_list = self.symbolic_map.get(self.emotional_state, ["stay mindful"])
+        return advice_list
+
+    def respond(self):
+        advice = self.get_advice()
+        print("Here’s some advice for you:")
+        for a in advice:
+            print(f"- {a}")
+
+# Example usage
+ai = SpecialAISystem()
+ai.update_emotional_state("Stressed")
+ai.respond()
